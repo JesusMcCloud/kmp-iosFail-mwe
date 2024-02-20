@@ -1,6 +1,9 @@
+import at.asitplus.gradle.serialization
+
 plugins {
     kotlin("multiplatform")
     id("at.asitplus.gradle.conventions")
+    kotlin("plugin.serialization")
 }
 
 group="mwe.example.parent"

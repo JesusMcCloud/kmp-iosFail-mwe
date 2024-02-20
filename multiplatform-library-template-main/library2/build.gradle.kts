@@ -1,6 +1,9 @@
+import at.asitplus.gradle.*
+import DatatypeVersions.encoding
 plugins {
     kotlin("multiplatform")
     id("at.asitplus.gradle.conventions")
+    kotlin("plugin.serialization")
 }
 
 group = "mwe.example.child"
@@ -14,7 +17,24 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                //put your multiplatform dependencies here
+                api(kmmresult())
+                api(serialization("json"))
+                api(datetime())
+                implementation("io.matthewnelson.kotlin-components:encoding-base16:${encoding}")
+                implementation("io.matthewnelson.kotlin-components:encoding-base64:${encoding}")
+            }
+        }
+
+        commonTest {
+            dependencies {
+                implementation(kotest("property"))
+                implementation(kotlin("reflect"))
+            }
+        }
+
+        jvmMain {
+            dependencies {
+                api(bouncycastle("bcpkix"))
             }
         }
 
