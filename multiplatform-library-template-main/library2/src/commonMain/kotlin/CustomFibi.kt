@@ -1,3 +1,5 @@
+import kotlinx.serialization.Serializable
+
 val fibi = sequence {
     var a = firstElement
     yield(a)
@@ -11,5 +13,9 @@ val fibi = sequence {
     }
 }
 
- val firstElement: Int =2
- val secondElement: Int=3
+val firstElement: Int = 2
+val secondElement: Int = 3
+
+
+@Serializable
+data class Bar(val foo: String = "baz")

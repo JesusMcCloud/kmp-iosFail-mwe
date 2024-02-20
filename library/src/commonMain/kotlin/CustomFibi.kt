@@ -1,5 +1,9 @@
 package parent
+
+import Bar
+
 val fibi = sequence {
+    val bar = Bar("foobar")
     var a = firstElement
     yield(a)
     var b = secondElement
