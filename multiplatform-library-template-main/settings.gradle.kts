@@ -1,18 +1,14 @@
 pluginManagement {
-    includeBuild("convention-plugins")
     repositories {
-        google()
+        maven {
+            url = uri("https://raw.githubusercontent.com/a-sit-plus/gradle-conventions-plugin/mvn/repo")
+            name = "aspConventions"
+        }
         mavenCentral()
         gradlePluginPortal()
     }
 }
 
-dependencyResolutionManagement {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
 
 rootProject.name = "multiplatform-library-template-child"
 include(":library2")

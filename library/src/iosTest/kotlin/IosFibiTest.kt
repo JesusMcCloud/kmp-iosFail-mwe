@@ -1,11 +1,11 @@
 package parent
-import kotlin.test.Test
-import kotlin.test.assertEquals
 
-class IosFibiTest {
+import io.kotest.core.spec.style.FreeSpec
+import io.kotest.matchers.shouldBe
 
-    @Test
-    fun `test 3rd element`() {
-        assertEquals(7, fibi.take(3).last())
+class IosFibiTest : FreeSpec({
+
+    "test 3rd element" {
+        fibi.take(3).last() shouldBe 7
     }
-}
+})

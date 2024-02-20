@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    id("module.publication")
+    kotlin("multiplatform")
+    id("at.asitplus.gradle.conventions")
 }
 
 group = "mwe.example.child"
@@ -12,15 +12,13 @@ kotlin {
     iosSimulatorArm64()
 
     sourceSets {
-         commonMain {
+        commonMain {
             dependencies {
                 //put your multiplatform dependencies here
             }
         }
-         commonTest  {
-            dependencies {
-                implementation(libs.kotlin.test)
-            }
-        }
+
     }
 }
+
+publishing { repositories { mavenLocal() } }

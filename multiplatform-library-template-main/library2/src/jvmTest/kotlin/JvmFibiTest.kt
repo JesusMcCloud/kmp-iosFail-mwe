@@ -1,10 +1,8 @@
-import kotlin.test.Test
-import kotlin.test.assertEquals
+import io.kotest.core.spec.style.FreeSpec
+import io.kotest.matchers.shouldBe
 
-class JvmFibiTest {
-
-    @Test
-    fun `test 3rd element`() {
-        assertEquals(5, fibi.take(3).last())
+class JvmFibiTest : FreeSpec({
+    "test 3rd element" {
+        fibi.take(3).last() shouldBe 5
     }
-}
+})

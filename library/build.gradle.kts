@@ -1,8 +1,10 @@
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    id("module.publication")
+    kotlin("multiplatform")
+    id("at.asitplus.gradle.conventions")
 }
+
 group="mwe.example.parent"
+
 kotlin {
     jvm()
     iosX64()
@@ -15,10 +17,7 @@ kotlin {
                 api("mwe.example.child:library2")
             }
         }
-         commonTest {
-            dependencies {
-                implementation(libs.kotlin.test)
-            }
-        }
     }
 }
+
+publishing { repositories { mavenLocal() } }
