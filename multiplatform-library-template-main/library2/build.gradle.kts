@@ -6,7 +6,6 @@ plugins {
 group = "mwe.example.child"
 
 kotlin {
-    applyDefaultHierarchyTemplate()
     jvm()
     iosX64()
     iosArm64()
