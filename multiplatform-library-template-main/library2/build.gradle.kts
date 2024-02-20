@@ -6,8 +6,6 @@ plugins {
     id("at.asitplus.gradle.conventions")
 }
 
-group = "mwe.example.child"
-
 kotlin {
     jvm()
     iosX64()
@@ -42,4 +40,18 @@ kotlin {
     }
 }
 
-publishing { repositories { mavenLocal() } }
+val javadocJar = setupDokka(baseUrl = "https://github.com/JesusMcCloud/kmp-iosFail-mwe/tree/main/multiplatform-library-template-main", multiModuleDoc = true)
+
+
+publishing {
+    publications {
+        withType<MavenPublication> {
+            artifact(javadocJar)
+        }
+    }
+    repositories {
+        mavenLocal {
+
+        }
+    }
+}

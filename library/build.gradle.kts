@@ -1,12 +1,11 @@
 import at.asitplus.gradle.serialization
+import at.asitplus.gradle.setupDokka
 
 plugins {
     kotlin("multiplatform")
-    id("at.asitplus.gradle.conventions")
     kotlin("plugin.serialization")
+    id("at.asitplus.gradle.conventions")
 }
-
-group="mwe.example.parent"
 
 kotlin {
     jvm()
@@ -23,4 +22,18 @@ kotlin {
     }
 }
 
-publishing { repositories { mavenLocal() } }
+val javadocJar = setupDokka(baseUrl = "https://github.com/JesusMcCloud/kmp-iosFail-mwe/tree/main", multiModuleDoc = true)
+
+
+publishing {
+    publications {
+        withType<MavenPublication> {
+            artifact(javadocJar)
+        }
+    }
+    repositories {
+        mavenLocal {
+
+        }
+    }
+}
