@@ -11,5 +11,5 @@ val fibi = sequence {
     }
 }
 
-expect val firstElement: Int
-expect val secondElement: Int
+ val firstElement: Int =2
+ val secondElement: Int=3
