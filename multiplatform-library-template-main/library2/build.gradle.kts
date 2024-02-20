@@ -2,8 +2,8 @@ import at.asitplus.gradle.*
 import DatatypeVersions.encoding
 plugins {
     kotlin("multiplatform")
-    id("at.asitplus.gradle.conventions")
     kotlin("plugin.serialization")
+    id("at.asitplus.gradle.conventions")
 }
 
 group = "mwe.example.child"
@@ -19,9 +19,10 @@ kotlin {
             dependencies {
                 api(kmmresult())
                 api(serialization("json"))
+                api(serialization("cbor"))
                 api(datetime())
                 implementation("io.matthewnelson.kotlin-components:encoding-base16:${encoding}")
-                implementation("io.matthewnelson.kotlin-components:encoding-base64:${encoding}")
+                api("io.matthewnelson.kotlin-components:encoding-base64:${encoding}")
             }
         }
 

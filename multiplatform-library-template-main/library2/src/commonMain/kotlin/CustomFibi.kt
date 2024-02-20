@@ -1,4 +1,7 @@
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.cbor.Cbor
+import kotlinx.serialization.cbor.CborLabel
+import kotlinx.serialization.encodeToByteArray
 
 val fibi = sequence {
     var a = firstElement
@@ -18,4 +21,6 @@ val secondElement: Int = 3
 
 
 @Serializable
-data class Bar(val foo: String = "baz")
+data class Bar(@CborLabel(348L) val foo: String = "baz") {
+    fun serialize(): ByteArray = Cbor.encodeToByteArray(this)
+}

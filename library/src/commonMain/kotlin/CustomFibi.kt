@@ -1,9 +1,12 @@
 package parent
 
 import Bar
+import io.matthewnelson.encoding.base64.Base64
+import io.matthewnelson.encoding.core.Encoder.Companion.encodeToString
 
 val fibi = sequence {
-    val bar = Bar("foobar")
+    val bar = Bar("foobar").serialize()
+    println(bar.encodeToString(Base64.Default))
     var a = firstElement
     yield(a)
     var b = secondElement
